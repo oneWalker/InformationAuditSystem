@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://struts.apache.org/dtds/struts-config_1_2.dtd">
+
+<struts-config>
+  <data-sources />
+  <form-beans >
+    <form-bean name="loginForm" type="com.struts.form.LoginForm" />
+    <form-bean name="queryPointForm" type="com.struts.form.QueryPointForm" />
+    <form-bean name="addPointForm" type="com.struts.form.AddPointForm" />
+    <form-bean name="deletePointForm" type="com.struts.form.DeletePointForm" />
+    <form-bean name="updatePointForm" type="com.struts.form.UpdatePointForm" />
+
+  </form-beans>
+
+  <global-exceptions />
+  <global-forwards />
+  <action-mappings >
+    <action
+      attribute="loginForm"
+      input="/login.jsp"
+      name="loginForm"
+      path="/loginAction"
+      scope="request"
+      type="com.struts.action.LoginAction"
+      validate="true">
+      <set-property property="cancellable" value="true" />
+      <forward name="fail" path="/login.jsp" />
+      <forward name="psuccess" path="/pointer/pointer.jsp" />
+      <forward name="isuccess" path="/inputer/inputer.jsp" />
+      <forward name="asuccess" path="/auditor/auditor.jsp" />
+    </action>
+    <action
+      attribute="queryPointForm"
+      input="/pointer/pointer.jsp"
+      name="queryPointForm"
+      path="/queryPointAction"
+      scope="request"
+      type="com.struts.action.QueryPointAction">
+      <set-property property="cancellable" value="true" />
+      <forward name="fail" path="/pointer/pointer.jsp" />
+      <forward name="success" path="/pointer/pointer.jsp" />
+    </action>
+    <action
+      attribute="addPointForm"
+      input="/pointer/addPoint.jsp"
+      name="addPointForm"
+      path="/addPointAction"
+      scope="request"
+      type="com.struts.action.AddPointAction">
+      <set-property property="cancellable" value="true" />
+      <forward name="fail" path="/pointer/addPoint.jsp" />
+      <forward name="success" path="/pointer/pointer.jsp" />
+    </action>
+    <action
+      attribute="deletePointForm"
+      input="/pointer/pointer.jsp"
+      name="deletePointForm"
+      path="/deletePointAction"
+      scope="request"
+      type="com.struts.action.DeletePointAction">
+      <set-property property="cancellable" value="true" />
+      <forward name="fail" path="/pointer/pointer.jsp" />
+      <forward name="success" path="/pointer/pointer.jsp" />
+    </action>
+    <action
+      attribute="updatePointForm"
+      input="/pointer/updatePoint.jsp"
+      name="updatePointForm"
+      path="/updatePointAction"
+      scope="request"
+      type="com.struts.action.UpdatePointAction">
+      <set-property property="cancellable" value="true" />
+      <forward name="fail" path="/pointer/updatePoint.jsp" />
+      <forward name="success" path="/pointer/pointer.jsp" />
+    </action>
+    
+  </action-mappings>
+
+  <message-resources parameter="com.struts.ApplicationResources" />
+</struts-config>
+
